@@ -5,13 +5,13 @@ import * as Animatable from 'react-native-animatable'
 
 import {useNavigation} from '@react-navigation/native'
 
-export default function SignIn(){
+export default function SignUp(){
     const navigation = useNavigation();
 
     return(
         <View style={styles.container}>
             <Animatable.View animation='fadeInLeft' delay={500} style={styles.containerHeader }>
-                <Text style={styles.textoBoasVindas}>Bem vindo!</Text>
+                <Text style={styles.textoBoasVindas}>Faça seu Cadastro</Text>
             </Animatable.View>
             
             <Animatable.View animation='fadeInUp' style={styles.containerForm}>
@@ -27,18 +27,17 @@ export default function SignIn(){
                     style={styles.input}
                 />
 
-                <TouchableOpacity
-                style={styles.buttonLogin}
-                onPress={() => navigation.navigate('Home')}
-                >
-                    <Text style={styles.buttonTextLogin}>Acessar</Text>
-                </TouchableOpacity>
+                <Text style={styles.title}>Confirmar Senha</Text>
+                <TextInput
+                    placeholder='Confirme sua senha'
+                    style={styles.input}
+                />
 
                 <TouchableOpacity
-                style={styles.buttonRegister}
-                onPress={() => navigation.navigate('SignUp')}
+                style={styles.buttonLogin}
+                onPress={() => navigation.navigate('SignIn')}
                 >
-                    <Text style={styles.buttonTextRegister}>Cadastre-se agora</Text>
+                    <Text style={styles.buttonTextLogin}>Cadastrar</Text>
                 </TouchableOpacity>
             </Animatable.View>
         </View>
@@ -84,7 +83,7 @@ const styles =  StyleSheet.create({
         width: '100%',
         borderRadius: 4,
         paddingVertical: 8,
-        marginTop: 14,
+        marginTop: 30,
         justifyContent: 'center',
         alignItems: 'center',
     },

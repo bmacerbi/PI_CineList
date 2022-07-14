@@ -16,6 +16,14 @@ export default function Welcome(){
 
     return(
         <View style = {styles.container}>
+            <View style={styles.containerTextLogo}>
+                <Animatable.Image 
+                    animation='flipInY'
+                    source={require('../../assets/logo_text.png')}
+                    style={{ width: '100%'}}
+                    resizeMode = "contain"
+                />
+            </View>
             <View style={styles.containerLogo}>
                 <Animatable.Image 
                     animation='flipInY'
@@ -43,11 +51,16 @@ export default function Welcome(){
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: '#2a2a2a'
+        backgroundColor: '#000'
+    },
+    containerTextLogo:{
+        flex:1,
+        justifyContent: 'center',
+        alignContent: 'center'
     },
     containerLogo:{
-        flex:2,
-        backgroundColor: '#2a2a2a',
+        flex:2.5,
+        backgroundColor: '#000',
         justifyContent: 'center',
         alignContent: 'center'
     },
