@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#2a2a2a'
     },
     containerLogo:{
-        flex:2,
+        flex:1.5,
         backgroundColor: '#2a2a2a',
         justifyContent: 'center',
         alignContent: 'center'
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
         marginBottom:12
     },
     text:{
-        color: '#a1a1a1'
+        color: '#C0C0C0'
     },
     button:{
         position: 'absolute',
