@@ -51,21 +51,17 @@ export default function Welcome(){
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: '#000'
+        backgroundColor: '#2a2a2a'
     },
     containerTextLogo:{
-        flex:1,
+        flex:0.6,
+        backgroundColor: '#2a2a2a',
         justifyContent: 'center',
         alignContent: 'center'
     },
     containerLogo:{
-<<<<<<< HEAD
         flex:1.5,
         backgroundColor: '#2a2a2a',
-=======
-        flex:2.5,
-        backgroundColor: '#000',
->>>>>>> 871958a27f5317db086392cd55b2ede269e5e33c
         justifyContent: 'center',
         alignContent: 'center'
     },
