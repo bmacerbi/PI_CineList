@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState , useEffect } from 'react';
 import { SafeAreaView, StyleSheet, Text, View, FlatList} from 'react-native';
 import axios from 'axios';
+import unirest from 'unirest';
 import { ActivityIndicator } from 'react-native-web';
 
 export default function Home() {
