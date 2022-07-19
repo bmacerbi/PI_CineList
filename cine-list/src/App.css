@@ -5,5 +5,5 @@ body {
 
 .cine-list > .row{
     overflow-x: visible;
-    flex-wrap: wrap-reverse;
+    flex-wrap: nowrap;
 }
