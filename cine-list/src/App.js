@@ -1,40 +1,57 @@
-import React, {useState, useEffect} from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import MovieList from "./components/MovieList";
-import MovieListHeading from "./components/MovieListHeading";
-import SearchBox from "./components/SearchBox";
+import React, { useEffect,useState } from "react";
+import Movie from './components/FilmeCatalogo';
+
+const api_key = "aaef4efb960f10b9af88cd0e410a1f54";
+
+const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=1`;
+const SEARCH_API = `https://api.themoviedb.org/3/search/movie?&api_key=${api_key}&query=`;
 
 function App () {
-  const [movies, setMovies] = useState([])
-  const [searchValue, setSearchValue] = useState('')
-
-  const getMovieRequest = async () => {
-    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=31ef069b`
-
-    const response = await fetch(url);
-    const responsJson = await response.json();
-
-    if(responsJson.Search){
-      setMovies(responsJson.Search)
-    }
-  };
+  const [movies, setMovies] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    getMovieRequest(searchValue);
-  }, [searchValue]);
+      getMovies(FEATURED_API);
+  }, []);
 
-  return(
-    <div className="container-rolling cine-list">
-      <div className="row d-flex align-item-center mt-4 mb-4">
-        <MovieListHeading heading = 'Movies'/>
-        <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/>
+  const getMovies = (API) => {
+    fetch(API)
+      .then((res) => res.json())
+      .then((data) => {
+        setMovies(data.results);
+      });
+  }
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    
+    if(searchTerm){
+      getMovies(SEARCH_API + searchTerm);
+      setSearchTerm("");
+    }    
+  };
+
+  const handleOnChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  return (
+    <>
+      <header>
+        <form onSubmit={handleOnSubmit}>
+          <input className="search" type="search" placeholder="Buscar..."
+          value={searchTerm} onChange={handleOnChange} />
+        </form>
+      </header>
+      <div className="movie-container">
+        {movies.length > 0 && 
+        movies.map((movie) => <Movie key={movie.id} {...movie} />)}
       </div>
-      <div className="row"> 
-        <MovieList movies={movies}/>
-      </div>
-    </div>
+    </>
   );
-};
+}
 
 export default App;
+
+
+//https://api.themoviedb.org/3/movie/550?api_key=aaef4efb960f10b9af88cd0e410a1f54
