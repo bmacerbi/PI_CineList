@@ -2,21 +2,29 @@
     padding: 10px;
     max-width: 100%;
     object-fit: cover;
-    height: 400px;
+    height: 550px;
     margin-left: 50px;
 }
 
-.movie-title{
+.movie-page {
     display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 2rem auto;
 }
 
-.movie-info {
+.movie-poster {
+    text-align: center;
+}
+
+.movie-title {
+    text-align: center;
+}
+
+.info h3{
+    font-size: 18px;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-}
-
-.movie-info h3 {
-    margin: 0;
+    gap: 0.5rem
 }

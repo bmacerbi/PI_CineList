@@ -34,29 +34,25 @@ const PageFilme = () =>{
         <div className="movie-page">
             {movie && (
             <>
-                    <div className="movie-poster">
-                        <img src={movie.poster_path ? (IMG_API + movie.poster_path) : 'https://static.thenounproject.com/png/1554490-200.png'} alt={movie.title} />
-                    </div>
-                    <div className="movie-title">
-                        <h3>{movie.title}</h3>
-                    </div>
-                    <div className="movie-note">
-                        <h3>IMDb nota:</h3>
-                        <p>{movie.vote_average.toFixed(1)}  <FaStar/></p>
-                    </div>
-                    <div className="info-release">
-                        <h3>Lançado em:</h3>
-                        <p>{movie.release_date} <FaRegCalendarAlt/></p>
-                    </div>
-                    <div className="info-duracao">
-                        <h3>Duração:</h3>
-                        <p>{movie.runtime} minutes <FaRegClock/></p>
-                    </div>
-                    <div className="info-budge">
-                        <h3>Orçamento:</h3>
-                        <p>{formatCurrency(movie.budget)}</p>
-                    </div>
-                <div className="info-sinopse">
+                <div className="movie-poster">
+                    <img src={movie.poster_path ? (IMG_API + movie.poster_path) : 'https://static.thenounproject.com/png/1554490-200.png'} alt={movie.title} />
+                </div>
+                <div className="movie-title">
+                    <h3>{movie.title} - {movie.vote_average.toFixed(1)}  <FaStar/></h3>
+                </div>
+                <div className="info">
+                    <h3>Lançado em:</h3>
+                    <p><FaRegCalendarAlt/> {movie.release_date}</p>
+                </div>
+                <div className="info">
+                    <h3>Duração:</h3>
+                    <p><FaRegClock/> {movie.runtime} minutes</p>
+                </div>
+                <div className="info">
+                    <h3>Orçamento:</h3>
+                    <p>{formatCurrency(movie.budget)}</p>
+                </div>
+                <div className="info">
                     <h3>Description:</h3>
                     <p> {movie.overview}</p>
                 </div>
