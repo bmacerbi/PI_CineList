@@ -17,6 +17,15 @@ header {
     justify-content: flex-end;
 }
 
+.header-info {
+    display: flex;
+    
+}
+
+.search-bar {
+    
+}
+
 .cine-list > .row{
     overflow-x: visible;
     flex-wrap: nowrap;
@@ -84,3 +93,17 @@ header {
 .button {
     color: white;
 }
+
+.filters button{
+   margin-right: 1rem;
+}
+
+.filters h3,button{
+    display: inline-block;
+}
+
+.filters h3 {
+    padding-left: 4rem;
+    padding-right: 2rem;
+}
+

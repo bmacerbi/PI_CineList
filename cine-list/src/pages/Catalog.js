@@ -40,12 +40,25 @@ function Catalog () {
 
   return (
     <>
-      <header>       
-        <form onSubmit={handleOnSubmit}>
-          <input className="search" type="search" placeholder="Buscar..."
-            value={searchTerm} onChange={handleOnChange} />
-        </form>
+      <header>     
+        <div className="header-info">
+          <h1>CineList</h1>
+          <h2>Assistidos</h2>
+          <h2>Interesses</h2>
+        </div>
+        <div className="search-bar">
+          <form onSubmit={handleOnSubmit}>
+            <input className="search" type="search" placeholder="Buscar..."
+              value={searchTerm} onChange={handleOnChange} />
+          </form>
+        </div>
       </header>
+      
+      <div className="filters">
+        <h3>Filter by: </h3>
+        <button >Popularity</button>
+        <button >Top Rated</button>
+      </div>
       <div className="movie-container">
         {movies.length > 0 && movies.map((movie) => <Movie key={movie.id} {...movie} />)}
       </div>

@@ -58,7 +58,7 @@ const PageFilme = () =>{
                     </div>
                 <div className="info-sinopse">
                     <h3>Description:</h3>
-                    <p> <FaFilm/> {movie.overview}</p>
+                    <p> {movie.overview}</p>
                 </div>
             </>
             )}
