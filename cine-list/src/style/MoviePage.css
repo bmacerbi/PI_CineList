@@ -1,14 +1,15 @@
-img { 
+.movie-poster img { 
     padding: 10px;
     max-width: 100%;
     object-fit: cover;
     height: 400px;
+    margin-left: 50px;
 }
 
-.movie-poster-info {
+.movie-title{
     display: flex;
-    justify-content: center;
 }
+
 .movie-info {
     display: flex;
     align-items: center;
