@@ -1,16 +1,13 @@
 import React from "react";
-import Rotas from './rotas';
-import Catalogo from './pages/Catalogo'
+import Routes from './pages/Pages';
+import Catalogo from './pages/Catalog'
+import PageFilme from "./pages/MoviePage";
 
-function App () {
+export default function App () {
   return (
-    <div>
-      <Catalogo/>
-    </div>
+    <Routes/>
   );
 }
-
-export default App;
 
 
 //https://api.themoviedb.org/3/movie/550?api_key=aaef4efb960f10b9af88cd0e410a1f54

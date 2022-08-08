@@ -40,7 +40,7 @@ function Catalogo () {
       <header>       
         <form onSubmit={handleOnSubmit}>
           <input className="search" type="search" placeholder="Buscar..."
-          value={searchTerm} onChange={handleOnChange} />
+            value={searchTerm} onChange={handleOnChange} />
         </form>
       </header>
       <div className="movie-container">

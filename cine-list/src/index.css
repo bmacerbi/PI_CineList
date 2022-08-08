@@ -46,12 +46,30 @@ header {
     overflow: hidden;
     margin: 1rem;
     width: 250px;
+    position: relative;
+    transition: transform 0.3s;
 }
 
 .movie img { 
     max-width: 100%;
     object-fit: cover;
     height: 400px;
+}
+
+.image-container:hover .overlay{
+    opacity: 1;
+}
+
+.overlay{
+    position: absolute;
+    background: rgba(0,0,0,0.8);
+    width: 100%;
+    transition: 0.5s ease;
+    opacity: 0;
+    bottom: 0;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
 }
 
 .movie:hover{
