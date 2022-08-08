@@ -25,6 +25,16 @@ function Catalog () {
       });
   }
 
+  const handleOnClickPop = (e) => {
+    const moviesPop = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=1`;
+    getMovies(moviesPop);
+  }
+
+  const handleOnClickTopR = (e) => {
+    const moviesTopR = `https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&vote_count.gte=5000&api_key=${api_key}&page=1`;
+    getMovies(moviesTopR);
+  }
+
   const handleOnSubmit = (e) => {
     e.preventDefault();
     
@@ -43,8 +53,8 @@ function Catalog () {
       <header>     
         <div className="header-info">
           <h1>CineList</h1>
-          <h2>Assistidos</h2>
-          <h2>Interesses</h2>
+          <button><Link to="/Watchlist">Interesses</Link></button>
+          <button><Link to="/Watched">Assistidos</Link></button>
         </div>
         <div className="search-bar">
           <form onSubmit={handleOnSubmit}>
@@ -53,11 +63,11 @@ function Catalog () {
           </form>
         </div>
       </header>
-      
+
       <div className="filters">
         <h3>Filter by: </h3>
-        <button >Popularity</button>
-        <button >Top Rated</button>
+        <button onClick={handleOnClickPop}>Popularity</button>
+        <button onClick={handleOnClickTopR}>Top Rated</button>
       </div>
       <div className="movie-container">
         {movies.length > 0 && movies.map((movie) => <Movie key={movie.id} {...movie} />)}

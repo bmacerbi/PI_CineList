@@ -3,9 +3,13 @@ import Routes from './Rotas';
 import Catalog from './pages/Catalog'
 import PageFilme from "./pages/MoviePage";
 
+import {GlobalProvider} from "./context/GlobalState";
+
 export default function App () {
   return (
-    <Routes/>
+    <GlobalProvider>
+      <Routes/>
+    </GlobalProvider>
   );
 }
 

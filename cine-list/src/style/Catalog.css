@@ -14,17 +14,33 @@ header {
     background-color: #1d1d1d;
     padding: 1rem;
     display:flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1{
+    margin-left: 4rem;
+    margin-right: 2rem;
+}
+
+
+header button{
+    all: unset;
+    margin-left: 3rem;
+    margin-right: -1rem;
+}
+
+body h1{
+    display: flex;
+    justify-content: center;
 }
 
 .header-info {
     display: flex;
-    
+    align-items: center;
+    justify-content: space-between; 
 }
 
-.search-bar {
-    
-}
 
 .cine-list > .row{
     overflow-x: visible;
