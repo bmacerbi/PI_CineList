@@ -1,0 +1,21 @@
+img { 
+    padding: 10px;
+    max-width: 100%;
+    object-fit: cover;
+    height: 400px;
+}
+
+.movie-poster-info {
+    display: flex;
+    justify-content: center;
+}
+.movie-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.movie-info h3 {
+    margin: 0;
+}
