@@ -1,16 +1,15 @@
-import React, { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 import Movie from "../components/Movie"
 
 const PageFilme = () =>{
+    const { id } = useParams();
     const [movies, setMovies] = useState([]);
 
     return(
         <>
-            <h2>asdjiapçsjd</h2>
-            <div className="movie-container">
-                {movies.length > 0 && 
-                movies.map((movie) => <Movie key={movie.id} {...movie} />)}
-            </div>
+            <h2>piru</h2>
         </>
     );
 };

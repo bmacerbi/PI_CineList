@@ -1,14 +1,14 @@
 import React, { useEffect,useState } from "react";
 import Movie from "../components/Movie"
 
-const Login = () =>{
+const SignUp = () =>{
     const [movies, setMovies] = useState([]);
 
     return(
         <>
-            <h2>login</h2>
+            <h2>cadastro</h2>
         </>
     );
 };
 
-export default Login;
+export default SignUp;
