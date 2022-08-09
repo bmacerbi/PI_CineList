@@ -35,6 +35,13 @@ body h1{
     justify-content: center;
 }
 
+.header-info-catalog {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding-left: 15vh;
+}
+
 .header-info {
     display: flex;
     align-items: center;

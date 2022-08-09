@@ -5,7 +5,7 @@ import "../style/Catalog.css"
 
 const api_key = "aaef4efb960f10b9af88cd0e410a1f54";
 
-const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=$1`;
+const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=1`;
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?&api_key=${api_key}&query=`;
 
 function Catalog () {
@@ -55,7 +55,7 @@ function Catalog () {
   return (
     <>
       <header>     
-        <div className="header-info">
+        <div className="header-info-catalog">
           <h1>CineList</h1>
           <button><Link to="/Watchlist">Watchlist</Link></button>
           <button><Link to="/Watched">Watched Movies</Link></button>
