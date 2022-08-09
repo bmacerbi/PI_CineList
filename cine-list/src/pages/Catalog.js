@@ -1,11 +1,15 @@
 import React, { useEffect,useState } from "react";
 import Movie from '../components/Movie';
-import {Link, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 import "../style/Catalog.css"
 
 const api_key = "aaef4efb960f10b9af88cd0e410a1f54";
 
-const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=$1`;
+let page = 1;
+let typeFilter = 0;
+let desableReturn = true;
+
+const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=${page}`;
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?&api_key=${api_key}&query=`;
 
 function Catalog () {
@@ -26,27 +30,59 @@ function Catalog () {
   }
 
   const handleOnClickPop = (e) => {
-    const moviesPop = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=1`;
-    getMovies(moviesPop);
+    page = 1;
+    desableReturn = true;
+    setSearchTerm("")
+    getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=${page}`);
+    typeFilter = 0;
   }
 
   const handleOnClickTopR = (e) => {
-    const moviesTopR = `https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&vote_count.gte=5000&api_key=${api_key}&page=1`;
-    getMovies(moviesTopR);
+    page = 1;
+    desableReturn = true;
+    setSearchTerm("")
+    getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&vote_count.gte=5000&api_key=${api_key}&page=${page}`);
+    typeFilter = 1;
   }
-
-  const handlePage = (e) => {
-    
-  }
-
+  
   const handleOnSubmit = (e) => {
+    page = 1;
+    desableReturn = true;
     e.preventDefault();
-    
     if(searchTerm && searchTerm.trim().length !== 0){
-      getMovies(SEARCH_API + searchTerm);
-      setSearchTerm("");
-    }    
+      getMovies(SEARCH_API + searchTerm + `&page=${page}`);
+    }
+    typeFilter = 2;    
   };
+
+  const avancePage = (e) => {
+    page++;
+    desableReturn = false;
+    if(typeFilter === 0){
+      getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=${page}`);
+    }
+    if(typeFilter === 1){
+      getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&vote_count.gte=5000&api_key=${api_key}&page=${page}`);
+    }
+    if(typeFilter === 2){
+      getMovies(SEARCH_API + searchTerm + `&page=${page}`);
+    }
+  }
+  const previousPage = (e) => {
+    page--;
+    if(page === 1){
+      desableReturn = true;
+    }
+    if(typeFilter === 0){
+      getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=${page}`);
+    }
+    if(typeFilter === 1){
+      getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&vote_count.gte=5000&api_key=${api_key}&page=${page}`);
+    }
+    if(typeFilter === 2){
+      getMovies(SEARCH_API + searchTerm + `&page=${page}`);
+    }
+  }
 
   const handleOnChange = (e) => {
     setSearchTerm(e.target.value);
@@ -76,6 +112,9 @@ function Catalog () {
       <div className="movie-container">
         {movies.length > 0 && movies.map((movie) => <Movie key={movie.id} {...movie} />)}
       </div>
+
+      <button onClick={avancePage}>Next page</button>
+      <button onClick={previousPage} disabled={desableReturn}>Previous page</button>
     </>
   );
 }
