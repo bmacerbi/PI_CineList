@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Movie from '../components/Movie';
 import "../style/Catalog.css"
 import { MovieControl } from '../components/MovieControl';
-import { MovieCard } from "../components/MovieCard"
 
 export const Watchlist = () =>{
     const {watchlist} = useContext (GlobalContext);

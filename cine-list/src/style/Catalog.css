@@ -113,10 +113,6 @@ body h1{
     padding: 5px 10px;
 }
 
-.filters button:focus{
-    background-color: green;
-}
-
 .filters h3,button{
     display: inline-block;
 }
@@ -132,12 +128,17 @@ body h1{
     border:none;
 }
 .remove-button img{
-    width: 2rem;
-    height: 2rem;
+    width: 1.7rem;
+    height: 1.7rem;
     
 }
 
 .remove-button:hover{
     cursor: pointer;
     transform: scale(1.1);
+}
+
+.walkers{
+    display: inline-block;
+    text-align: center;
 }

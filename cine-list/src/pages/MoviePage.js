@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams,Link } from "react-router-dom";
-import {FaStar, FaRegClock, FaRegCalendarAlt, FaFilm} from 'react-icons/fa'
+import {FaStar, FaRegClock, FaRegCalendarAlt} from 'react-icons/fa'
 import "../style/MoviePage.css"
 
 import { GlobalContext } from "../context/GlobalState";
