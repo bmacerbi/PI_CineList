@@ -13,8 +13,8 @@ const PageFilme = () =>{
     const [movie, setMovie] = useState(null);
     const { addMovieToWatchList, watchlist, watched, addMovieToWatched } = useContext(GlobalContext);
 
-    let storedWatchMovie = watchlist.find((obj) => obj.id === id);
-    let storedWatchedMovie= watched.find((obj) => obj.id === id);
+    let storedWatchMovie = watchlist.find((obj) => obj.id == id);
+    let storedWatchedMovie= watched.find((obj) => obj.id == id);
 
     const disableWatched = storedWatchedMovie ? true : false;
     const disableWatcheList = storedWatchMovie ? true : false;
