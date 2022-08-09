@@ -47,3 +47,46 @@ header h1{
     align-items: center;
     gap: 0.5rem
 }
+
+
+button{
+    font-family: "Poppins", sans-serif;
+    border-radius: 10px;
+    margin: 0.5rem;
+}
+
+button:hover{
+    cursor:pointer;
+    transform: scale(1.1);
+}
+
+button:disabled{
+    transform:scale(1.0);
+    background: lightgray;
+    color: gray;
+    cursor:default;
+}
+
+.bt-watchedlist{
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+.bt-watchlist{
+    background-color: #008CBA; 
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  .child-container{
+    float:left;
+  }

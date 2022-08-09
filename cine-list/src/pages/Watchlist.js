@@ -13,13 +13,13 @@ export const Watchlist = () =>{
         <header>   
         <div className="header-info">
             <button><h1><Link to="/">CineList</Link></h1></button>
-            <button><Link to="/Watchlist">Interesses</Link></button>
-            <button><Link to="/Watched">Assistidos</Link></button>
+            <button><Link to="/Watchlist">Watchlist</Link></button>
+            <button><Link to="/Watched">Watched Movies</Link></button>
         </div>
         </header>
         <h1>My Watchlist</h1>
         <div className="movie-container">
-            {watchlist.length === 0 && <h1>No movies on watchlist yet...</h1>}
+            {watchlist.length === 0 && <h3>No movies on watchlist yet...</h3>}
             {watchlist.length > 0 && watchlist.map((movie) => 
             <>
                 <Movie key={movie.id} {...movie} />

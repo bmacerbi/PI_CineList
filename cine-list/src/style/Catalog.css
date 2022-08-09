@@ -96,10 +96,6 @@ body h1{
     padding: 1rem;
 }
 
-.movie-info h3 {
-    margin: 0;
-}
-
 .nota {
     background-color: #2a2a2a;
     border-radius: 5px;
@@ -111,7 +107,14 @@ body h1{
 }
 
 .filters button{
-   margin-right: 1rem;
+    border: none;
+    background-color: lightgray;
+    margin-right: 0.5rem;
+    padding: 5px 10px;
+}
+
+.filters button:focus{
+    background-color: green;
 }
 
 .filters h3,button{
@@ -123,3 +126,18 @@ body h1{
     padding-right: 2rem;
 }
 
+.remove-button{
+    display:flex;
+    background: none;
+    border:none;
+}
+.remove-button img{
+    width: 2rem;
+    height: 2rem;
+    
+}
+
+.remove-button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
