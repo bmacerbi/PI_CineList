@@ -1,13 +1,13 @@
 import React, {useContext} from 'react'
 import {GlobalContext} from "../context/GlobalState";
-import "../style/Catalog.css"
+import "../style/MovieControl.css"
 
 
 export const MovieControl = ({movie, type}) => {
     const { removeMovieFromWatchlist, removeMovieFromWatchedlist} = useContext(GlobalContext);
     
     return(
-        <div className = "inner-card-controls">
+        <div className = "card-controls">
             {type === "watchlist" && (
                 <button className="remove-button" onClick={() => removeMovieFromWatchlist(movie.id)}>
                     <img src="https://www.pngall.com/wp-content/uploads/5/Delete-Red-X-Button-Transparent.png"/>

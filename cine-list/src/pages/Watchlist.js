@@ -2,9 +2,8 @@ import React, {useContext} from 'react'
 import { GlobalContext } from '../context/GlobalState';
 import { Link } from "react-router-dom";
 import Movie from '../components/Movie';
-import "../style/Catalog.css"
+import "../style/Watchlist.css"
 import { MovieControl } from '../components/MovieControl';
-import { MovieCard } from "../components/MovieCard"
 
 export const Watchlist = () =>{
     const {watchlist} = useContext (GlobalContext);
@@ -12,9 +11,10 @@ export const Watchlist = () =>{
     <>
         <header>   
         <div className="header-info">
-            <button><h1><Link to="/">CineList</Link></h1></button>
-            <button><Link to="/Watchlist">Watchlist</Link></button>
-            <button><Link to="/Watched">Watched Movies</Link></button>
+            <Link to="/"><button className="header-hover"><h1>CineList</h1></button></Link>
+            <Link to="/Watchlist"><button className="header-hover">Watchlist</button></Link>
+            <Link to="/Watched"><button className="header-hover">Watched Movies</button></Link>
+            <Link to="/Login"><button className="logout">Logout</button></Link>
         </div>
         </header>
         <h1>My Watchlist</h1>

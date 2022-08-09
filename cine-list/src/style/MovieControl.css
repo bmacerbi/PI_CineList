@@ -1,0 +1,16 @@
+.remove-button{
+    display:flex;
+    background: none;
+    border:none;
+}
+
+.remove-button img{
+    width: 1.7rem;
+    height: 1.7rem;
+    
+}
+
+.remove-button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}

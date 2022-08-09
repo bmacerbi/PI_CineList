@@ -14,7 +14,6 @@ header h1{
 .header-info {
     display: flex;
     align-items: center;
-    padding-left:10vh;
     justify-content: space-between; 
 }
 

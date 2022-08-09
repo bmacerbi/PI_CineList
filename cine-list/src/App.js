@@ -1,7 +1,5 @@
 import React from "react";
 import Routes from './Rotas';
-import Catalog from './pages/Catalog'
-import PageFilme from "./pages/MoviePage";
 
 import {GlobalProvider} from "./context/GlobalState";
 

@@ -1,0 +1,11 @@
+.header-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+.movie-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

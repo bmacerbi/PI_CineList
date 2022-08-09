@@ -3,7 +3,7 @@ import { GlobalContext } from '../context/GlobalState';
 import { Link } from "react-router-dom";
 import Movie from '../components/Movie';
 import { MovieControl } from '../components/MovieControl';
-import "../style/Catalog.css"
+import "../style/Watched.css"
 
 export const Watched = () =>{
     const {watched} = useContext (GlobalContext);
@@ -11,9 +11,10 @@ export const Watched = () =>{
     <>
         <header>   
         <div className="header-info">
-            <button><h1><Link to="/">CineList</Link></h1></button>
-            <button><Link to="/Watchlist">Watchlist</Link></button>
-            <button><Link to="/Watched">Watched Movies</Link></button>
+            <Link to="/"><button className="header-hover"><h1>CineList</h1></button></Link>
+            <Link to="/Watchlist"><button className="header-hover">Watchlist</button></Link>
+            <Link to="/Watched"><button className="header-hover">Watched Movies</button></Link>
+            <Link to="/Login"><button className="logout">Logout</button></Link>
         </div>
         </header>
         <h1>My Watched Movies</h1>

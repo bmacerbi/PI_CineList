@@ -1,53 +1,9 @@
-body {
-    background-color: #2a2a2a;
-    color: white;
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-}
-
-.root {
-    display: flex;
-    flex-direction: column;
-}
-
-header {
-    background-color: #1d1d1d;
-    padding: 1rem;
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-header h1{
-    margin-left: 4rem;
-    margin-right: 2rem;
-}
-
-
-header button{
-    all: unset;
-    margin-left: 3rem;
-    margin-right: -1rem;
-}
-
-body h1{
-    display: flex;
-    justify-content: center;
-}
-
 .header-info-catalog {
     display: flex;
     align-items: center;
     justify-content: space-between; 
-    padding-left: 15vh;
+    padding-left: 5vh;
 }
-
-.header-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
-}
-
 
 .cine-list > .row{
     overflow-x: visible;
@@ -74,54 +30,11 @@ body h1{
     flex-wrap: wrap;
 }
 
-.movie {
-    background-color: #1d1d1d;
-    border-radius: 3px;
-    box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
-    overflow: hidden;
-    margin: 1rem;
-    width: 250px;
-    position: relative;
-    transition: transform 0.3s;
-}
-
-.movie img { 
-    max-width: 100%;
-    object-fit: cover;
-    height: 400px;
-}
-
-.movie:hover{
-    cursor: pointer;
-    transform: scale(1.1);
-}
-
-.movie-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-}
-
-.nota {
-    background-color: #2a2a2a;
-    border-radius: 5px;
-    padding: 0.5rem;
-}
-
-.button {
-    color: white;
-}
-
 .filters button{
     border: none;
     background-color: lightgray;
     margin-right: 0.5rem;
     padding: 5px 10px;
-}
-
-.filters button:focus{
-    background-color: green;
 }
 
 .filters h3,button{
@@ -133,18 +46,19 @@ body h1{
     padding-right: 2rem;
 }
 
-.remove-button{
-    display:flex;
-    background: none;
-    border:none;
-}
-.remove-button img{
-    width: 2rem;
-    height: 2rem;
-    
+.walkers{
+    display: inline-block;
+    text-align: center;
 }
 
-.remove-button:hover{
-    cursor: pointer;
-    transform: scale(1.1);
+.logout {
+    color: lightcoral;
+}
+
+.logout:hover {
+    color: red;
+}
+
+.header-hover:hover {
+    color: green;
 }

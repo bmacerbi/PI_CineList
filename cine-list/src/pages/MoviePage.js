@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams,Link } from "react-router-dom";
-import {FaStar, FaRegClock, FaRegCalendarAlt, FaFilm} from 'react-icons/fa'
+import {FaStar, FaRegClock, FaRegCalendarAlt} from 'react-icons/fa'
 import "../style/MoviePage.css"
 
 import { GlobalContext } from "../context/GlobalState";
@@ -13,8 +13,8 @@ const PageFilme = () =>{
     const [movie, setMovie] = useState(null);
     const { addMovieToWatchList, watchlist, watched, addMovieToWatched } = useContext(GlobalContext);
 
-    let storedWatchMovie = watchlist.find((obj) => obj.id == id);
-    let storedWatchedMovie= watched.find((obj) => obj.id == id);
+    let storedWatchMovie = watchlist.find((obj) => obj.id === id);
+    let storedWatchedMovie= watched.find((obj) => obj.id === id);
 
     const disableWatched = storedWatchedMovie ? true : false;
     const disableWatcheList = storedWatchMovie ? true : false;
@@ -40,16 +40,19 @@ const PageFilme = () =>{
     }, []);
 
     return(
+        <>
+        <header>     
+            <div className="header-info">
+            <Link to="/"><button className="header-hover"><h1>CineList</h1></button></Link>
+            <Link to="/Watchlist"><button className="header-hover">Watchlist</button></Link>
+            <Link to="/Watched"><button className="header-hover">Watched Movies</button></Link>
+            <Link to="/Login"><button className="logout">Logout</button></Link>
+            </div>
+        </header>
         <div className="movie-page">
             {movie && (
             <>
-                    <header>     
-                        <div className="header-info">
-                        <button><h1><Link to="/">CineList</Link></h1></button>
-                        <button><Link to="/Watchlist">Watchlist</Link></button>
-                        <button><Link to="/Watched">Watched Movies</Link></button>
-                        </div>
-                    </header>
+                    
                     <div className="child-container">
                         <div className="movie-title">
                             <h3>{movie.title}</h3>
@@ -99,6 +102,7 @@ const PageFilme = () =>{
             </>
             )}
         </div>
+    </>
     );
 };
 

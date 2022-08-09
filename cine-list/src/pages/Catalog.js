@@ -1,11 +1,18 @@
 import React, { useEffect,useState } from "react";
 import Movie from '../components/Movie';
-import {Link, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
+import {FaAngleDoubleLeft, FaAngleDoubleRight} from 'react-icons/fa'
 import "../style/Catalog.css"
 
 const api_key = "aaef4efb960f10b9af88cd0e410a1f54";
 
-const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=1`;
+
+let page = 1;
+let typeFilter = 0;
+let desableReturn = true;
+let savedSearchTerm = ""
+
+const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=${page}`;
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?&api_key=${api_key}&query=`;
 
 function Catalog () {
@@ -14,7 +21,15 @@ function Catalog () {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    getMovies(FEATURED_API);
+    if(typeFilter === 0){
+      getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=${page}`);
+    }
+    else if(typeFilter === 1){
+      getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&vote_count.gte=5000&api_key=${api_key}&page=${page}`)
+    }
+    else if(typeFilter === 2){
+      getMovies(SEARCH_API + savedSearchTerm + `&page=${page}`);
+    }
   }, []);
 
   const getMovies = (API) => {
@@ -26,27 +41,61 @@ function Catalog () {
   }
 
   const handleOnClickPop = (e) => {
-    const moviesPop = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=1`;
-    getMovies(moviesPop);
+    page = 1;
+    desableReturn = true;
+    setSearchTerm("")
+    getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=${page}`);
+    typeFilter = 0;
   }
 
   const handleOnClickTopR = (e) => {
-    const moviesTopR = `https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&vote_count.gte=5000&api_key=${api_key}&page=1`;
-    getMovies(moviesTopR);
+    page = 1;
+    desableReturn = true;
+    setSearchTerm("")
+    getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&vote_count.gte=5000&api_key=${api_key}&page=${page}`);
+    typeFilter = 1;
   }
-
-  const handlePage = (e) => {
-    
-  }
-
+  
   const handleOnSubmit = (e) => {
+    page = 1;
+    desableReturn = true;
     e.preventDefault();
-    
     if(searchTerm && searchTerm.trim().length !== 0){
-      getMovies(SEARCH_API + searchTerm);
-      setSearchTerm("");
-    }    
+      savedSearchTerm = searchTerm;
+      getMovies(SEARCH_API + savedSearchTerm + `&page=${page}`);
+    }
+    typeFilter = 2;    
   };
+
+  const avancePage = (e) => {
+    page++;
+    desableReturn = false;
+    if(typeFilter === 0){
+      getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=${page}`);
+    }
+    if(typeFilter === 1){
+      getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&vote_count.gte=5000&api_key=${api_key}&page=${page}`);
+    }
+    if(typeFilter === 2){
+      getMovies(SEARCH_API + savedSearchTerm + `&page=${page}`);
+    }
+  }
+  
+  const previousPage = (e) => {
+    page--;
+    if(page === 1){
+      desableReturn = true;
+    }
+    if(typeFilter === 0){
+      getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=${page}`);
+    }
+    if(typeFilter === 1){
+      getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&vote_count.gte=5000&api_key=${api_key}&page=${page}`);
+    }
+    if(typeFilter === 2){
+      getMovies(SEARCH_API + savedSearchTerm + `&page=${page}`);
+    }
+  }
 
   const handleOnChange = (e) => {
     setSearchTerm(e.target.value);
@@ -54,11 +103,12 @@ function Catalog () {
 
   return (
     <>
-      <header>     
+      <header>
         <div className="header-info-catalog">
           <h1>CineList</h1>
-          <button><Link to="/Watchlist">Watchlist</Link></button>
-          <button><Link to="/Watched">Watched Movies</Link></button>
+          <Link to="/Watchlist"><button className="header-hover">Watchlist</button></Link>
+          <Link to="/Watched"><button className="header-hover">Watched Movies</button></Link>
+          <Link to="/Login"><button className="logout">Logout</button></Link>
         </div>
         <div className="search-bar">
           <form onSubmit={handleOnSubmit}>
@@ -73,7 +123,14 @@ function Catalog () {
         <button onClick={handleOnClickPop}>Popularity</button>
         <button onClick={handleOnClickTopR}>Top Rated</button>
       </div>
+
+      <div className="walkers">
+        <button onClick={previousPage} disabled={desableReturn}><FaAngleDoubleLeft/></button>
+        <button onClick={avancePage}><FaAngleDoubleRight/></button>
+      </div>
+
       <div className="movie-container">
+        {movies.length === 0 && <h1>No movies found</h1>}
         {movies.length > 0 && movies.map((movie) => <Movie key={movie.id} {...movie} />)}
       </div>
     </>
