@@ -1,19 +1,21 @@
 .page-signup *{
     padding: 0;
-    margin: 0;
+    margin: auto;
     box-sizing: border-box;
 }
 
-.title {
-    margin-top: 4rem;
+.page-signup {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .form-signup{
-    height: 750px;
+    margin-top: 4rem;
+    height: 800px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
     top: 50%;
     left: 50%;
     border-radius: 10px;

@@ -1,7 +1,14 @@
 .page-login *{
     padding: 0;
-    margin: 0;
+    margin: auto;
     box-sizing: border-box;
+}
+
+.page-login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .title {
@@ -12,10 +19,10 @@
     height: 520px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
+    
     top: 50%;
     left: 50%;
+    margin-top: 5rem;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);
