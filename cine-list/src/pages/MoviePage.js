@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams,Link } from "react-router-dom";
-import {FaStar, FaRegClock, FaRegCalendarAlt, FaRegMoneyBillAlt, FaUserAlt} from 'react-icons/fa'
+import {FaStar, FaRegClock, FaRegCalendarAlt, FaRegMoneyBillAlt} from 'react-icons/fa'
 import "../style/MoviePage.css"
 import Actor from "../components/Actor"
 import Director from "../components/Director"
@@ -131,7 +131,7 @@ const MoviePage = () =>{
                     </div>
                     
                     <div className="bottom-container">   
-                        <h2>Main Cast:</h2>
+                        <h2>Main Cast</h2>
                         <div className="actor-list">
                             {actors.length === 0 && <h1>No Actors</h1>}
                             {actors.length > 0 && actors.map((actor) => <Actor key={actor.id} {...actor} />)}

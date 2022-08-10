@@ -30,6 +30,12 @@ header h1{
     border-radius: 30px;
 }
 
+.parent-container{
+    margin-top: 3rem;
+    display:flex;
+    margin-bottom: 3rem;
+}
+
 .left-container{
     width: 80%;
   }
@@ -47,10 +53,8 @@ header h1{
     box-shadow: 0 0 10px rgba(8,7,16,0.6);
   }
 
-.parent-container{
-    margin-top: 3rem;
-    display:flex;
-    margin-bottom: 3rem;
+.bottom-container h2 {
+    text-align: center;
 }
 
 
@@ -91,10 +95,6 @@ header h1{
 
 .movie-title {
     text-align: center;
-}
-
-.bottom-container {
-    justify-content: center;
 }
 
 .actor-list {
