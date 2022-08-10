@@ -4,7 +4,7 @@ import "../style/Movie.css"
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
-const Movie = ({poster_path,title,vote_average,id, showLink = false}) => {
+const Movie = ({poster_path,title,vote_average,id}) => {
     return (
     <div className="movie">
         <Link to={`/movie/${id}`}>

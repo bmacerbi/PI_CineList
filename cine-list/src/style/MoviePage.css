@@ -17,37 +17,90 @@ header h1{
     justify-content: space-between; 
 }
 
+.movie-title {
+    text-decoration: underline;
+}
+
 .movie-poster img { 
     padding: 10px;
-    max-width: 100%;
-    object-fit: cover;
-    height: 550px;
-    margin-left: 50px;
+    height: 70%;
+    width: 70%;
+    margin:auto;
+    margin-bottom: 1rem;
+    border-radius: 30px;
 }
+
+.left-container{
+    width: 80%;
+  }
+
+  
+.right-container{
+    width: 100%;
+    padding: 2rem;
+    border-width: medium;
+    border-style: solid;
+    margin-right: 5rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #1d1d1d;
+    box-shadow: 0 0 10px rgba(8,7,16,0.6);
+  }
+
+.parent-container{
+    margin-top: 3rem;
+    display:flex;
+    margin-bottom: 3rem;
+}
+
+
+.movie-poster {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.list-buttons {
+    display:flex;
+    justify-content: center;
+}
+
+.bt-watchedlist{
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+.bt-watchlist{
+    background-color: #008CBA; 
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+  }
 
 .movie-page {
     display: flex;
     flex-direction: column;
-    max-width: 600px;
     margin: 2rem auto;
-}
-
-.movie-poster {
-    text-align: center;
 }
 
 .movie-title {
     text-align: center;
 }
 
-.info h3{
-    font-size: 18px;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+.bottom-container {
+    justify-content: center;
 }
 
+.actor-list {
+    display: flex;
+    justify-content: center;
+}
 
 button{
     font-family: "Poppins", sans-serif;
@@ -67,39 +120,7 @@ button:disabled{
     cursor:default;
 }
 
-.bt-watchedlist{
-    background-color: #4CAF50; 
-    border: none;
-    color: white;
-    padding: 15px 20px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-  }
+ 
 
-.bt-watchlist{
-    background-color: #008CBA; 
-    border: none;
-    color: white;
-    padding: 15px 30px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-  }
 
-  .poster-info-container{
-    width: 100%;
-  }
 
-  .info-container{
-    width: 100%;
-    float: left;
-    padding-left: 2rem;
-    border-width: medium;
-    border-style: solid;
-    border-color: rgba(129, 129, 129, 0.123);
-  }
-
-.parent-container{
-    float: left;
-}

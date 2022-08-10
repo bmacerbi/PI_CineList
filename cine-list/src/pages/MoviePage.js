@@ -3,16 +3,18 @@ import { useParams,Link } from "react-router-dom";
 import {FaStar, FaRegClock, FaRegCalendarAlt, FaRegMoneyBillAlt, FaUserAlt} from 'react-icons/fa'
 import "../style/MoviePage.css"
 import Actor from "../components/Actor"
+import Director from "../components/Director"
 
 import { GlobalContext } from "../context/GlobalState";
 
 const api_key = "aaef4efb960f10b9af88cd0e410a1f54";
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
-const PageFilme = () =>{
+const MoviePage = () =>{
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
     const [actors, setActors] = useState([]);
+    const [directors, setDirectors] = useState([]);
     const { addMovieToWatchList, watchlist, watched, addMovieToWatched } = useContext(GlobalContext);
 
     let storedWatchMovie = watchlist.find((obj) => obj.id == id);
@@ -33,7 +35,15 @@ const PageFilme = () =>{
         fetch(API)
           .then((res) => res.json())
           .then((data) => {
-            setActors(data.cast.slice(0,10));
+            setActors(data.cast.filter(({known_for_department}) => known_for_department === "Acting").slice(0,10));
+        });
+    } 
+
+    const getDirectors = (API) => {
+        fetch(API)
+          .then((res) => res.json())
+          .then((data) => {
+            setDirectors(data.crew.filter(({job}) => job === 'Director'));
         });
     } 
 
@@ -49,6 +59,7 @@ const PageFilme = () =>{
         const ACTORS_API = `http://api.themoviedb.org/3/movie/${id}/credits?api_key=${api_key}`;
         getMovie(movieURL);
         getActors(ACTORS_API);
+        getDirectors(ACTORS_API);
     }, []);
 
     return(
@@ -64,59 +75,65 @@ const PageFilme = () =>{
             <div className="movie-page">
                 {movie && (
                 <div>
+                    <h1 className="movie-title">{movie.title}</h1>
                     <div className="parent-container">
-                        <div className="poster-info-container">
-                            <div className="movie-title">
-                                <h3>{movie.title}</h3>
-                            </div>
+                        <div className="left-container">
                             <div className="movie-poster">
                                 <img src={movie.poster_path ? (IMG_API + movie.poster_path) : 'https://static.thenounproject.com/png/1554490-200.png'} alt={movie.title} />
-                                <button
-                                    className="bt-watchedlist" 
-                                    disabled={disableWatched}
-                                    onClick={()=> addMovieToWatched(movie)}
-                                >
-                                    Add to Watched Movies
-                                </button>
-                                <button 
-                                    className="bt-watchlist"
-                                    disabled={disableWatcheList}
-                                    onClick={()=> addMovieToWatchList(movie)}
-                                >
-                                    Add to Watchlist
-                                </button>
+                                <div className="list-buttons">
+                                    <button
+                                        className="bt-watchedlist" 
+                                        disabled={disableWatched}
+                                        onClick={()=> addMovieToWatched(movie)}
+                                    >
+                                        Add to Watched Movies
+                                    </button>
+                                    <button 
+                                        className="bt-watchlist"
+                                        disabled={disableWatcheList}
+                                        onClick={()=> addMovieToWatchList(movie)}
+                                    >
+                                        Add to Watchlist
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         
-                        <div className="info-container">
+                        <div className="right-container">
+                            <div className="movie-directors">
+                                <h3>Directed by:</h3>
+                                {directors.length > 0 && directors.map((director) => <Director key={director.id} {...director}/>)}
+                             
+                                
+                            </div>
                             <div className="movie-note">
-                                <h3>IMDb nota:</h3>
+                                <h3>IMDb Score:</h3>
                                 <p>{movie.vote_average.toFixed(1)}  <FaStar/></p>
                             </div>
 
                             <div className="info-release">
-                                <h3>Lançado em:</h3>
+                                <h3>Release date:</h3>
                                 <p>{movie.release_date} <FaRegCalendarAlt/></p>
                             </div>
                             <div className="info-duracao">
-                                <h3>Duração:</h3>
+                                <h3>Duration:</h3>
                                 <p>{movie.runtime} minutes <FaRegClock/></p>
                             </div>
                             <div className="info-budge">
-                                <h3>Orçamento:</h3>
+                                <h3>Budget:</h3>
                                 <p>{formatCurrency(movie.budget)} <FaRegMoneyBillAlt/></p>
                             </div>
+                            <div className="info-sinopse">
+                                <h3>Description:</h3>
+                                <p> {movie.overview}</p>
+                        </div>
                         </div>
                     </div>
                     
-                    <div className="child-container">
-                        <div className="info-sinopse">
-                            <h3>Description:</h3>
-                            <p> {movie.overview}</p>
-                        </div>
-                        <div className="movie-actors">
-                            <h3>Main Cast:</h3>
-                            {actors.length === 0 && <h1>sem atores</h1>}
+                    <div className="bottom-container">   
+                        <h2>Main Cast:</h2>
+                        <div className="actor-list">
+                            {actors.length === 0 && <h1>No Actors</h1>}
                             {actors.length > 0 && actors.map((actor) => <Actor key={actor.id} {...actor} />)}
                         </div>
                     </div>
@@ -127,4 +144,4 @@ const PageFilme = () =>{
     );
 };
 
-export default PageFilme;
+export default MoviePage;
