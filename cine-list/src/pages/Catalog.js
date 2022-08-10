@@ -10,7 +10,7 @@ const api_key = "aaef4efb960f10b9af88cd0e410a1f54";
 let page = 1;
 let typeFilter = 0;
 let desableReturn = true;
-let savedSearchTerm = ""
+let savedSearchTerm = "";
 
 const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=${page}`;
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?&api_key=${api_key}&query=`;
@@ -108,7 +108,7 @@ function Catalog () {
           <h1>CineList</h1>
           <Link to="/Watchlist"><button className="header-hover">Watchlist</button></Link>
           <Link to="/Watched"><button className="header-hover">Watched Movies</button></Link>
-          <Link to="/Login"><button className="logout">Logout</button></Link>
+          <Link to="/"><button className="logout">Logout</button></Link>
         </div>
         <div className="search-bar">
           <form onSubmit={handleOnSubmit}>

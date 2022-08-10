@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React from "react";
 import {Link} from "react-router-dom";
 import '../style/SignUp.css';
 
@@ -25,7 +25,7 @@ const SignUp = () =>{
             <label className="label-signup" for="password-confirm">Confirm Password</label>
             <input className="input-signup" type="password" placeholder="Password" id="password-confirm"/>
 
-            <Link to="/login">
+            <Link to="/">
                 <button className="button-register">Register</button>
             </Link>
     

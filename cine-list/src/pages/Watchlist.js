@@ -11,10 +11,10 @@ export const Watchlist = () =>{
     <>
         <header>   
         <div className="header-info">
-            <Link to="/"><button className="header-hover"><h1>CineList</h1></button></Link>
+            <Link to="/Catalog"><button className="header-hover"><h1>CineList</h1></button></Link>
             <Link to="/Watchlist"><button className="header-hover">Watchlist</button></Link>
             <Link to="/Watched"><button className="header-hover">Watched Movies</button></Link>
-            <Link to="/Login"><button className="logout">Logout</button></Link>
+            <Link to="/"><button className="logout">Logout</button></Link>
         </div>
         </header>
         <h1>My Watchlist</h1>

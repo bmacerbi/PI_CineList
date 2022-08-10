@@ -18,12 +18,12 @@ const Login = () =>{
                 <label className="label-login" for="password">Password</label>
                 <input className="input-login" type="password" placeholder="Password" id="password"/>
 
-                <Link to="/">
+                <Link to="/Catalog">
                     <button className="button-login">Log In</button>
                 </Link>
                 <div className="info-signup">
                     <p>Don't have an account?⠀</p>
-                    <Link to="/signup">
+                    <Link to="/SignUp">
                         <button className="button-signup">Sign up</button>
                     </Link>
                     
