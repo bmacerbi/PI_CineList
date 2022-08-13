@@ -22,3 +22,6 @@ $ npm install
 ```
 $ npm start
 ```
+### Licença
+
+- Projeto desenvolvido por Bruno Menegaz e Gustavo Dutra
