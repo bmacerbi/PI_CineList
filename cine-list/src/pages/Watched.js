@@ -5,6 +5,10 @@ import Movie from '../components/Movie';
 import { MovieControl } from '../context/MovieControl';
 import "../style/Watched.css"
 
+ /**
+ * Exibe a pagina responsável pela exibição da lista de filmes assistidos com suas respectivas funcionalidades
+ * @return Pagina de filmes assistidos
+ */
 export const Watched = () =>{
     const {watched} = useContext (GlobalContext);
     return(

@@ -13,8 +13,11 @@ let savedSearchTerm = "";
 
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?&api_key=${api_key}&query=`;
 
+ /**
+ * Exibe a página do Catálogo com suas respectivas funcionalidades
+ * @return Página Catálogo
+ */
 function Catalog () {
-  
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 

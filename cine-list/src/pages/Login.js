@@ -2,7 +2,10 @@ import React from "react";
 import {Link} from "react-router-dom";
 import '../style/Login.css';
 
-
+ /**
+ * Exibe a página do Login com suas respectivas funcionalidades
+ * @return Página Login
+ */
 const Login = () =>{
     return(
         <>
