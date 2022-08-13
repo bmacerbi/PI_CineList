@@ -1,8 +1,14 @@
 import React, {useContext} from 'react'
-import {GlobalContext} from "../context/GlobalState";
+import {GlobalContext} from "./GlobalState";
 import "../style/MovieControl.css"
 
 
+/**
+ * Definindo controles de acesso iterativos
+ * @param {Movie} movie Componente de um filme
+ * @param {string} type Tipo de interação realizada pelo usuario
+ * @return Componente iterativo para exclusão de um filme da lista de assistidos ou da lista de interesses
+ */
 export const MovieControl = ({movie, type}) => {
     const { removeMovieFromWatchlist, removeMovieFromWatchedlist} = useContext(GlobalContext);
     

@@ -6,10 +6,9 @@ import "../style/Catalog.css"
 
 const api_key = "aaef4efb960f10b9af88cd0e410a1f54";
 
-
 let page = 1;
 let typeFilter = 0;
-let desableReturn = true;
+let disableReturn = true;
 let savedSearchTerm = "";
 
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?&api_key=${api_key}&query=`;
@@ -31,6 +30,10 @@ function Catalog () {
     }
   }, []);
 
+   /**
+ * Realiza uma GET request para obter os filmes que serão exibidos no catálogo
+ * @param {string} API URL da request a ser feita, de acordo com a documentação da API TMDb
+ */
   const getMovies = (API) => {
     fetch(API)
       .then((res) => res.json())
@@ -39,51 +42,72 @@ function Catalog () {
       });
   }
 
-  const handleOnClickPop = (e) => {
+
+  /**
+ * Reordena o catálogo de filmes pelo filtro de Popularidade quando seu respectivo botão é clicado
+ *
+ */
+  const handleOnClickPop = () => {
     page = 1;
-    desableReturn = true;
+    disableReturn = true;
     setSearchTerm("")
     getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=${page}`);
-    typeFilter = 0;
+    typeFilter = 0; //tipo "Popularidade"
   }
 
-  const handleOnClickTopR = (e) => {
+   /**
+ * Reordena o catálogo de filmes pelo filtro de Melhores Avaliações quando seu respectivo botão é clicado
+ *
+ */
+  const handleOnClickTopR = () => {
     page = 1;
-    desableReturn = true;
+    disableReturn = true;
     setSearchTerm("")
     getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&vote_count.gte=5000&api_key=${api_key}&page=${page}`);
-    typeFilter = 1;
+    typeFilter = 1; //tipo "Melhores Avaliados"
   }
   
+   /**
+ * Exibe os filmes no catálogo referentes ao termo buscado na barra de busca quando este é enviado
+ *
+ */
   const handleOnSubmit = (e) => {
     page = 1;
-    desableReturn = true;
+    disableReturn = true;
     e.preventDefault();
     if(searchTerm && searchTerm.trim().length !== 0){
       savedSearchTerm = searchTerm;
       getMovies(SEARCH_API + savedSearchTerm + `&page=${page}`);
     }
-    typeFilter = 2;    
+    typeFilter = 2; //tipo "Busca"    
   };
 
-  const avancePage = (e) => {
+  /**
+ * Avança a página atual do catálogo de filmes quando o respectivo botão é clicado
+ *
+ */
+  const avancePage = () => {
     page++;
-    desableReturn = false;
-    if(typeFilter === 0){
+    disableReturn = false;
+    if(typeFilter === 0){ //Filtro de Popularidade
       getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=${page}`);
     }
-    if(typeFilter === 1){
+    if(typeFilter === 1){ //Filtro de Melhores Avaliados
       getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&vote_count.gte=5000&api_key=${api_key}&page=${page}`);
     }
-    if(typeFilter === 2){
+    if(typeFilter === 2){ //Busca
       getMovies(SEARCH_API + savedSearchTerm + `&page=${page}`);
     }
   }
   
+   /**
+ * Retorna à página anterior do catálogo de filmes quando o respectivo botão é clicado
+ *
+ */
   const previousPage = (e) => {
     page--;
     if(page === 1){
-      desableReturn = true;
+      disableReturn = true;
     }
     if(typeFilter === 0){
       getMovies(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=${page}`);
@@ -124,7 +148,7 @@ function Catalog () {
       </div>
 
       <div className="walkers">
-        <button onClick={previousPage} disabled={desableReturn}><FaAngleDoubleLeft/></button>
+        <button onClick={previousPage} disabled={disableReturn}><FaAngleDoubleLeft/></button>
         <button onClick={avancePage}><FaAngleDoubleRight/></button>
       </div>
 

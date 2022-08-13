@@ -4,6 +4,15 @@ import "../style/Movie.css"
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
+/**
+ * Definindo o componente Filme capturado da API
+ * @param {string} name
+ * @param {string} poster_path Caminho de acesso ao poster do filme
+ * @param {string} title Título do filme pertencente ao componente
+ * @param {float} vote_average Nota media do filme baseada na avaliação do IMDb
+ * @param {int} id Identificador do componente filme na API
+ * @return Componente iterativo de filme exibindo seu poste, título e nota média
+ */
 const Movie = ({poster_path,title,vote_average,id}) => {
     return (
     <div className="movie">

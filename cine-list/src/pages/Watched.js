@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import { GlobalContext } from '../context/GlobalState';
 import { Link } from "react-router-dom";
 import Movie from '../components/Movie';
-import { MovieControl } from '../components/MovieControl';
+import { MovieControl } from '../context/MovieControl';
 import "../style/Watched.css"
 
 export const Watched = () =>{

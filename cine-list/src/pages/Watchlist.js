@@ -3,7 +3,7 @@ import { GlobalContext } from '../context/GlobalState';
 import { Link } from "react-router-dom";
 import Movie from '../components/Movie';
 import "../style/Watchlist.css"
-import { MovieControl } from '../components/MovieControl';
+import { MovieControl } from '../context/MovieControl';
 
 export const Watchlist = () =>{
     const {watchlist} = useContext (GlobalContext);

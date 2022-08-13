@@ -4,7 +4,6 @@ import {FaStar, FaRegClock, FaRegCalendarAlt, FaRegMoneyBillAlt} from 'react-ico
 import "../style/MoviePage.css"
 import Actor from "../components/Actor"
 import Director from "../components/Director"
-
 import { GlobalContext } from "../context/GlobalState";
 
 const api_key = "aaef4efb960f10b9af88cd0e410a1f54";
@@ -23,6 +22,10 @@ const MoviePage = () =>{
     const disableWatched = storedWatchedMovie ? true : false;
     const disableWatcheList = storedWatchMovie ? true : false;
 
+    /**
+     * Realiza uma GET request para obter o filme exibido na página
+     * @param {string} API URL da request a ser feita, de acordo com a documentação da API TMDb
+    */
     const getMovie = (API) => {
       fetch(API)
         .then((res) => res.json())
@@ -31,6 +34,10 @@ const MoviePage = () =>{
         });
     } 
 
+    /**
+     * Realiza uma GET request para obter os atores de um respectivo filme
+     * @param {string} API URL da request a ser feita, de acordo com a documentação da API TMDb
+    */
     const getActors = (API) => {
         fetch(API)
           .then((res) => res.json())
@@ -39,6 +46,10 @@ const MoviePage = () =>{
         });
     } 
 
+    /**
+     * Realiza uma GET request para obter os diretores de um respectivo filme
+     * @param {string} API URL da request a ser feita, de acordo com a documentação da API TMDb
+    */
     const getDirectors = (API) => {
         fetch(API)
           .then((res) => res.json())
@@ -47,6 +58,11 @@ const MoviePage = () =>{
         });
     } 
 
+    /**
+     * Formata um valor para uma string com padrão definido
+     * @param {number} number Valor a ser formatado
+     * @return {string} Valor formatado
+    */
     const formatCurrency = (number) =>{
         return number.toLocaleString("en-US",{
             style: "currency",
