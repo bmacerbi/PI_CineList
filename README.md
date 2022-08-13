@@ -23,7 +23,7 @@ $ npm install
 $ npm start
 ```
 
-### Agora é so utilizar!
+### Exemplo de uso
   ![ezgif com-gif-maker](https://user-images.githubusercontent.com/76237652/184460819-acc133c5-4c89-4b57-9da5-24e9379b9c01.gif)
 
 ### Licença
