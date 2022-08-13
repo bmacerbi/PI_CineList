@@ -9,6 +9,10 @@ import { GlobalContext } from "../context/GlobalState";
 const api_key = "aaef4efb960f10b9af88cd0e410a1f54";
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
+ /**
+ * Exibe a página de exibição de um filme com suas respectivas funcionalidades
+ * @return Página de exibição de um filme
+ */
 const MoviePage = () =>{
     const { id } = useParams();
     const [movie, setMovie] = useState(null);

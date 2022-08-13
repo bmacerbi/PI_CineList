@@ -5,6 +5,10 @@ import Movie from '../components/Movie';
 import "../style/Watchlist.css"
 import { MovieControl } from '../context/MovieControl';
 
+ /**
+ * Exibe a pagina responsável pela exibição da lista de interesse com suas respectivas funcionalidades
+ * @return Pagina de filmes interesse
+ */
 export const Watchlist = () =>{
     const {watchlist} = useContext (GlobalContext);
     return(

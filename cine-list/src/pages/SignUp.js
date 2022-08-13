@@ -2,7 +2,10 @@ import React from "react";
 import {Link} from "react-router-dom";
 import '../style/SignUp.css';
 
-
+ /**
+ * Exibe a pagina de cadastro de um usuario com suas respectivas funcionalidades
+ * @return Página de cadastro de um usuario
+ */
 const SignUp = () =>{
 
     return(
