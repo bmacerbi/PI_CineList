@@ -12,7 +12,7 @@ $ sudo apt-get install curl
 $ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 $ sudo apt-get install nodejs
 ```
-- Em seguida, deve-se clonar o repositório e intalar as dependencias do projeto, para isso a seguinte serie de comando deve ser executada:
+- Em seguida, deve-se clonar o repositório e instalar as dependências do projeto, para isso a seguinte série de comandos deve ser executada:
 ```
 $ git clone https://github.com/Brunu-Mene/PI_CineList.git
 $ cd PI_CineList/cine-list/
