@@ -6,7 +6,7 @@
 ### Instalação & Execução
 
 - O primeiro passo é a instalação do Node.js, para isso basta que se execute os comandos:
-  - Ou se preferir, o dowload pode ser realizado pelo link: [Node Download](https://nodejs.org/en/download/)
+  - Ou se preferir, o download pode ser realizado pelo link: [Node Download](https://nodejs.org/en/download/)
 ```
 $ sudo apt-get install curl
 $ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
