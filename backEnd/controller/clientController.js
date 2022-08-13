@@ -1,9 +1,13 @@
 const Client = require('../models/Client');
 const fs = require('fs');
-//const helper = require('../helper/fileHandling')
 
 const JSON_CLINTS_ADRESS = "../data/clients.json"
 
+/**
+ * Função auxiliar para realizar a releitura do conteudo armazenado no json de dados de clientes
+ * @return Um array de objetos contidos no json
+ * 
+ */
 function convertJsonToArray(){
     var stringData = fs.readFileSync(JSON_CLINTS_ADRESS)
     var data = JSON.parse(stringData)
@@ -16,6 +20,11 @@ function convertJsonToArray(){
     return clientArray;
 }
 
+/**
+ * Função para validar e escrever novo cliente no json de dados
+ * @return Retorna string a depender do resultado da tentativa de escrita
+ * 
+ */
 async function registerNewUser(req, res) {
     if(req.body.password === req.body.confirmPassword){
         var vetClients = convertJsonToArray();
@@ -39,6 +48,11 @@ async function registerNewUser(req, res) {
     return res.send({'message':'Passwords do not match'})
 }
 
+/**
+ * Função para buscar possivel cliente nos dados do json para realizar login
+ * @return Retorna string a depender do resultado da busca
+ * 
+ */
 async function login(req,res) {
     var clients = convertJsonToArray()
 
