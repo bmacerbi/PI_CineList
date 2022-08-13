@@ -24,4 +24,4 @@ $ npm start
 ```
 ### Licença
 
-- Projeto desenvolvido por Bruno Menegaz e Gustavo Dutra
+Projeto desenvolvido por Bruno Menegaz e Gustavo Dutra
