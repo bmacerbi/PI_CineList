@@ -12,7 +12,6 @@ let typeFilter = 0;
 let desableReturn = true;
 let savedSearchTerm = "";
 
-const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=${page}`;
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?&api_key=${api_key}&query=`;
 
 function Catalog () {
